@@ -1,0 +1,17 @@
+.main-color {
+  background-color: #1ab394;
+  color: white;
+}
+
+.custom-width {
+  width: 25%;
+}
+
+.custom-choices-structure {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
