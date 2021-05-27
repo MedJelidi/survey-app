@@ -61,4 +61,8 @@ export class AppComponent implements OnInit {
       this.p = $event;
     }
   }
+
+  uncheckedNameAge(): boolean {
+    return this.name.length === 0 || (this.age.length === 0) || isNaN(Number(this.age.toString())) || (+this.age < 18 || +this.age > 100);
+  }
 }

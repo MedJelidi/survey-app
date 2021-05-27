@@ -11,7 +11,7 @@ export class ResponseService {
   constructor(private httpClient: HttpClient) { }
 
   postResponse(response: any): Observable<any> {
-    return this.httpClient.post<any>('http://localhost:3000/response', response,
+    return this.httpClient.post<any>('https://survey-tn-backend.herokuapp.com/response', response,
       {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
   }
 }

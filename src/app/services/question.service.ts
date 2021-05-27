@@ -11,6 +11,6 @@ export class QuestionService {
   constructor(private httpClient: HttpClient) { }
 
   getQuestions(): Observable<Question[]> {
-    return this.httpClient.get<Question[]>('http://localhost:3000/questions');
+    return this.httpClient.get<Question[]>('https://survey-tn-backend.herokuapp.com/questions');
   }
 }

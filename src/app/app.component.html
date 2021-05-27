@@ -34,7 +34,7 @@
               <div class="input-group custom-width">
                 <input type="text" class="form-control" placeholder="Age" aria-label="Age" [(ngModel)]="age">
               </div>
-              <button type="button" class="btn custom-width main-color" [disabled]="name.length === 0 || (+age < 18 || +age > 100)" (click)="startSurvey()">Commencer</button>
+              <button type="button" class="btn custom-width main-color" [disabled]="uncheckedNameAge()" (click)="startSurvey()">Commencer</button>
             </div>
           </div>
 
