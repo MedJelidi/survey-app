@@ -1,32 +1,28 @@
-<div class="card text-dark bg-light mb-3 text-center" *ngIf="checkType('number')">
+<div class="card-body custom-choices-structure" *ngIf="checkType('number')">
   <div class="card-header">
-    <p class="card-text">{{question.question}}</p>
+    <p class="card-text rubik-font secondary-color-text">{{question.question}}</p>
   </div>
-  <div class="card-body custom-choices-structure">
-    <div class="input-group custom-width">
-      <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" [(ngModel)]="textValue">
-    </div>
-    <button type="button" class="btn custom-width main-color" [disabled]="+textValue < 1 || +textValue > 100" (click)="next(textValue)">Ok</button>
+  <div class="input-group custom-width">
+    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" [(ngModel)]="textValue">
   </div>
+  <button type="button" class="btn custom-width main-color" [disabled]="+textValue < 1 || +textValue > 100" (click)="next(textValue)">Ok</button>
 </div>
 
-<div class="card text-dark bg-light mb-3 text-center" *ngIf="checkType('radio')">
+<div class="card-body custom-choices-structure" *ngIf="checkType('radio')">
   <div class="card-header">
-    <p class="card-text">{{question.question}}</p>
+    <p class="card-text rubik-font secondary-color-text">{{question.question}}</p>
   </div>
-  <div class="card-body custom-choices-structure">
-    <div *ngFor="let choice of question.choices; let i = index" class="custom-input">
-      <div class="form-check">
-        <input (change)="selectedOption($event)" class="form-check-input" id="{{i}}" name="{{choice}}" type="radio">
-        <label class="form-check-label" for="{{i}}">
-          {{choice}}
-        </label>
-      </div>
+  <div *ngFor="let choice of question.choices; let i = index" class="custom-input">
+    <div class="form-check">
+      <input (change)="selectedOption($event)" class="form-check-input" id="{{i}}" name="{{choice}}" type="radio">
+      <label class="form-check-label" for="{{i}}">
+        {{choice}}
+      </label>
     </div>
   </div>
 </div>
 
-<div class="card text-dark bg-light mb-3 text-center" *ngIf="checkType('checkbox')">
+<div *ngIf="checkType('checkbox')">
   <div class="card-header">
     <p class="card-text">{{question.question}}</p>
   </div>

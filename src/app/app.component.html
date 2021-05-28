@@ -17,34 +17,45 @@
   <div class="container">
     <div class="row">
       <div class="col"></div>
-      <div class="col-9">
+      <div class="col-6 centered-flex">
         <div class="text-center" style="margin-top: 5em" *ngIf="loading">
           <div class="spinner-border text-secondary" role="status" style="height: 3em; width: 3em">
           </div>
         </div>
         <div *ngIf="!loading">
-          <div class="card text-dark bg-light mb-3 text-center" *ngIf="!showSurvey && !theEnd">
-            <div class="card-header">
-              <p class="card-text">Bienvenue</p>
-            </div>
-            <div class="card-body custom-choices-structure">
-              <div class="input-group custom-width">
-                <input type="text" class="form-control" placeholder="Nom" aria-label="Nom" [(ngModel)]="name">
+          <div class="card text-dark bg-light mb-3 text-center custom-height" *ngIf="!showSurvey && !theEnd">
+            <img src="assets/pattern%20(1).png" class="card-img" alt="...">
+            <div class="card-img-overlay flex flex-column">
+              <div style="height: 50%"></div>
+              <div class="flex flex-column text-left">
+                <p class="rubik-font main-color-text big-text">Votre avis en une minute</p>
+                <p class="nunito-font secondary-color-text medium-text custom-max-width">en répondant à ce sondage d'une minute, vous nous
+                  aidez à améliorer encore mieux notre service pour vous.</p>
               </div>
-              <div class="input-group custom-width">
-                <input type="text" class="form-control" placeholder="Age" aria-label="Age" [(ngModel)]="age">
+              <div class="card-body custom-choices-structure">
+                <div class="input-group custom-width">
+                  <input type="text" class="form-control" placeholder="Nom" aria-label="Nom" [(ngModel)]="name">
+                </div>
+                <div class="input-group custom-width">
+                  <input type="text" class="form-control" placeholder="Age" aria-label="Age" [(ngModel)]="age">
+                </div>
+                <button type="button" class="btn custom-width main-color" [disabled]="uncheckedNameAge()" (click)="startSurvey()">Commencer</button>
               </div>
-              <button type="button" class="btn custom-width main-color" [disabled]="uncheckedNameAge()" (click)="startSurvey()">Commencer</button>
             </div>
           </div>
 
           <div *ngIf="showSurvey">
-            <app-question *ngFor="let question of questions | paginate: { itemsPerPage: 1, currentPage: p }"
-                          [question]="question"
-                          [pageNumber]="p"
-                          (selectedAnswer)="addAnswer($event, p - 1)"
-                          (nextPage)="goToNext($event)">
-            </app-question>
+            <div class="card text-dark bg-light mb-3 text-center">
+              <div class="flex flex-row justify-content-between m-3">
+                <div *ngFor="let q of questions; let i = index;" class="big-dash" [ngClass]="{'active': i + 1 === p}"></div>
+              </div>
+              <app-question *ngFor="let question of questions | paginate: { itemsPerPage: 1, currentPage: p }"
+                            [question]="question"
+                            [pageNumber]="p"
+                            (selectedAnswer)="addAnswer($event, p - 1)"
+                            (nextPage)="goToNext($event)">
+              </app-question>
+            </div>
           </div>
 
           <div class="card text-dark bg-light mb-3 text-center" *ngIf="theEnd">

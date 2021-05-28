@@ -1,10 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Rubik:wght@500&display=swap');
+
 .main-color {
   background-color: #1ab394;
   color: white;
 }
 
+.secondary-color-text {
+  color: #535454;
+}
+
+.main-color-text {
+  color: #1ab394;
+}
+
+.big-text {
+  font-size: 1.5rem;
+}
+
+.medium-text {
+  font-size: 1.1rem;
+}
+
 .custom-width {
-  width: 25%;
+  width: 50%;
 }
 
 .custom-choices-structure {
@@ -15,3 +33,91 @@
   margin-bottom: 1rem;
   gap: 1rem;
 }
+
+img {
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0));
+}
+
+.custom-height {
+  height: 30em;
+}
+
+.rubik-font {
+  font-family: 'Rubik', sans-serif;
+}
+
+.big-dash {
+  width: 9%;
+  height: 0.2rem;
+  border-radius: 13%;
+  background: #e4e6e6;
+}
+
+.active {
+  background: #1ab394;
+}
+
+.nunito-font {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.centered-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-max-width {
+  max-width: 75%;
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+  .col-6 {
+    width: 85%;
+  }
+  /*.medium-text {*/
+  /*  font-size: 1rem;*/
+  /*}*/
+
+  /*.container-md, .container-sm, .container {*/
+  /*  max-width: 992px;*/
+  /*}*/
+}
+
+@media only screen and (max-width: 768px) {
+  /*.medium-text {*/
+  /*  font-size: 0.95rem;*/
+  /*}*/
+
+  /*.custom-max-width {*/
+  /*  max-width: 100%;*/
+  /*}*/
+
+  /*.big-text {*/
+  /*  font-size: 1.3rem;*/
+  /*}*/
+  .col-6 {
+    width: 85%;
+  }
+}
+
+
+.col-6 {
+  max-width: 100%;
+  min-width: 50%;
+}
+
+/*@media only screen and (min-width: 576px) {*/
+/*  .container-sm, .container {*/
+/*    max-width: 745px;*/
+/*  }*/
+/*}*/
